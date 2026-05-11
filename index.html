@@ -93,7 +93,7 @@ footer{background:var(--deep-green);color:rgba(253,250,245,0.70);padding:48px 24
 .footer-info{font-size:12px;line-height:2;color:rgba(253,250,245,0.45)}
 .footer-copy{margin-top:24px;font-size:11px;color:rgba(253,250,245,0.30);font-family:'Cormorant Garamond',serif;letter-spacing:1px}
 .fixed-kakao{position:fixed;bottom:0;left:0;right:0;z-index:200;padding:14px 20px;background:rgba(247,243,236,0.95);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-top:1px solid rgba(199,154,61,0.15);box-shadow:0 -8px 30px rgba(18,57,42,0.08)}
-.kakao-btn{width:100%;background:#FEE500;color:#3A1D1D;border:none;padding:18px 24px;border-radius:16px;font-size:16px;font-weight:700;font-family:'Noto Sans KR',sans-serif;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:10px;transition:all 0.2s ease;box-shadow:0 4px 16px rgba(254,229,0,0.45);letter-spacing:0.5px}
+.kakao-btn{width:100%;background:#FEE500;color:#3A1D1D;border:none;padding:18px 24px;border-radius:16px;font-size:16px;font-weight:700;font-family:'Noto Sans KR',sans-serif;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:10px;transition:all 0.2s ease;box-shadow:0 4px 16px rgba(254,229,0,0.45);letter-spacing:0.5px;text-decoration:none;}
 .toast{position:fixed;bottom:110px;left:50%;transform:translateX(-50%) translateY(20px);background:var(--deep-green);color:var(--gold-light);font-family:'Noto Sans KR',sans-serif;font-size:14px;font-weight:500;padding:12px 24px;border-radius:50px;box-shadow:0 8px 24px rgba(18,57,42,0.30);opacity:0;transition:all 0.3s ease;white-space:nowrap;z-index:300;pointer-events:none}
 .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
 .modal-overlay{position:fixed;inset:0;background:rgba(18,57,42,0.65);backdrop-filter:blur(8px);z-index:400;display:flex;align-items:flex-end;opacity:0;pointer-events:none;transition:opacity 0.3s ease}
@@ -327,10 +327,10 @@ footer{background:var(--deep-green);color:rgba(253,250,245,0.70);padding:48px 24
 </footer>
 
 <div class="fixed-kakao">
-  <button class="kakao-btn" onclick="kakaoConsult()">
+  <a class="kakao-btn" href="https://open.kakao.com/o/sAhkayui" target="_blank" rel="noopener noreferrer">
     <span style="font-size:20px">💬</span>
     카카오로 무료 상담하기
-  </button>
+  </a>
 </div>
 
 <div class="toast" id="toast"></div>
@@ -359,7 +359,7 @@ function closeModal(){document.getElementById('modalOverlay').classList.remove('
 function closeModalOutside(e){if(e.target===document.getElementById('modalOverlay'))closeModal()}
 function goToShop(){closeModal();showToast('🛒 스토어로 이동합니다...')}
 function addToCart(){closeModal();showToast('💚 장바구니에 담았습니다!')}
-function kakaoConsult(){showToast('💬 카카오 채널로 연결합니다...')}
+
 const observer=new IntersectionObserver((entries)=>{entries.forEach((entry,i)=>{if(entry.isIntersecting){setTimeout(()=>entry.target.classList.add('visible'),i*80);observer.unobserve(entry.target)}})},{threshold:0.10});
 document.querySelectorAll('.animate-in').forEach(el=>observer.observe(el));
 </script>
